@@ -8,14 +8,15 @@ from django.urls import reverse
 from rest_framework.test import APIClient
 from rest_framework import status
 
-CREATE_USER_URL = reverse('user:create') # user = app ; create = endpoint
+CREATE_USER_URL = reverse('user:create')  # user = app ; create = endpoint
 
-def create_user(**params): # helper: 'cause we'll be creating users for testing
+
+def create_user(**params):  # helper: 'cause we'll be creating users for testing
     """Create and return a new user."""
     return get_user_model().objects.create_user(**params)
 
 
-class PublicUserApiTests(TestCase): # Unauthenticated requests
+class PublicUserApiTests(TestCase):  # Unauthenticated requests
     """Test the public features of the user API."""
 
     def setUp(self):
